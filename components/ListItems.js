@@ -11,7 +11,7 @@ export default function ListItems({ item, deleteItem }) {
                 <Text style={styles.text}>{item.text}</Text>
                 <Text style={styles.icon}>{item.id}</Text>
             </View>
-            <Icon name="remove" size={20} color="firebrick" />
+            <Icon onPress={() => deleteItem(item.id)} name="remove" size={20} color="firebrick" />
         </TouchableOpacity>
     )
 }
