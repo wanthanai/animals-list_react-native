@@ -17,10 +17,18 @@ const App = () => {
     {id: uuid.v4(), text: 'Bird'},
   ]);
 
+  // function 
+  const deleteItem = (id) => {
+    setItems(prevItems => {
+      return prevItems.filter(item => item.id !== id)
+    });
+  }
+
+  // return component
   return (
     <View style={styles.container}>
       <Header/>
-      <FlatList data={items} renderItem={({item}) => <ListItems item={item} />} />
+      <FlatList data={items} renderItem={({item}) => <ListItems item={item} deleteItem={deleteItem} />} />
     </View>
   )
 }

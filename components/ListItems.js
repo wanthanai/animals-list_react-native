@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 // icon 
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export default function ListItems({ item }) {
+export default function ListItems({ item, deleteItem }) {
     return (
         <TouchableOpacity style={styles.container
         }>
