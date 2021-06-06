@@ -4,6 +4,7 @@ import { View, Text, FlatList, StyleSheet, Alert } from 'react-native'
 import Header from './components/Header'
 import ListItems from './components/ListItems'
 import AddItem from './components/AddItem'
+import Footer from './components/Footer'
 // uuid
 import uuid from 'react-native-uuid'
 
@@ -40,6 +41,7 @@ const App = () => {
       <Header/>
       <AddItem addItem={addItem} />
       <FlatList data={items} renderItem={({item}) => <ListItems item={item} deleteItem={deleteItem} />} />
+      <Footer />
     </View>
   )
 }
