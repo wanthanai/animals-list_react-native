@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Alert } from 'react-native'
 // component
 import Header from './components/Header'
 import ListItems from './components/ListItems'
@@ -24,12 +24,21 @@ const App = () => {
       return prevItems.filter(item => item.id !== id)
     });
   }
+  const addItem = (text) => {
+    if(!text) {
+      Alert.alert('ผิดพลาด', 'กรุณาใส่ข้อมูล!')
+    } else {
+      setItems(prevItems => {
+        return [{id: uuid.v4(), text: text}, ...prevItems]
+      })
+    }
+  }
 
   // return component
   return (
     <View style={styles.container}>
       <Header/>
-      <AddItem />
+      <AddItem addItem={addItem} />
       <FlatList data={items} renderItem={({item}) => <ListItems item={item} deleteItem={deleteItem} />} />
     </View>
   )
